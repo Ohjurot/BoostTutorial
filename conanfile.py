@@ -5,10 +5,7 @@ class MoxPPRecipe(ConanFile):
     generators = "PremakeDeps"
 
     def requirements(self):
-        self.requires("spdlog/1.13.0")
+        self.requires("boost/1.84.0")
 
     def configure(self):
-        # This only works on windows (we added this so that you can see
-        # how to change settings of packages)
-        # self.options["spdlog"].wchar_support = True
-        pass
+        self.options["boost"].without_fiber = False
